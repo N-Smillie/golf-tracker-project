@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ course.name }}</h1>
+
+<h2>Holes</h2>
+
+<ul>
+    {% for hole in course.holes.all %}
+        <li>
+            Hole {{ hole.number }} - Par {{ hole.par }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
