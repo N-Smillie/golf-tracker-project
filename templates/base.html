@@ -20,6 +20,17 @@
         {% endif %}
     </nav>
 
+
+    <ul>
+        {% for course in courses %}
+            <li>
+                <a href="{% url 'course_detail' course.slug %}">
+                    {{ course.name}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    
     {% block content %}
     {% endblock %}
 
