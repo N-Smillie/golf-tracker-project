@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ round.course.name }}</h1>
+<p>{{ round.get_holes_played_display }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <table>
+        <tr>
+            <th>Hole</th>
+            <th>Par</th>
+            <th>Score</th>
+        </tr>
+
+        {% for hole in holes %}
+        <tr>
+            <td>{{ hole.number }}</td>
+            <td>{{ hole.par }}</td>
+            <td>
+                <input 
+                    type="number" 
+                    name="hole_{{ hole.id }}" 
+                    min="1"
+                >
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <button type="submit">Save Scores</button>
+</form>
+
+{% endblock %}
