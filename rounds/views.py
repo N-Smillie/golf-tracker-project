@@ -16,7 +16,9 @@ def start_round(request):
     else:
         form = RoundForm()
     
-    return render(request, 'rounds/start_round.html')
+    return render(request, 'rounds/start_round.html', {
+        'form': form
+    })
 
 def round_history(request):
     return render(request, 'rounds/round_history.html')
