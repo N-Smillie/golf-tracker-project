@@ -56,8 +56,29 @@ def round_detail(request, round_id):
                 )
 
         return redirect('round_detail', round_id=round.id)
+    
+    # Get existing scores
+    scores = {score.hole.id: score.strokes for score in round.scores.all()}
+
+    # Give score to each hole
+    total_strokes = 0
+    total_par = 0
+
+    for hole in holes:
+        hole.score = scores.get(hole.id)
+
+        total_par += hole.par
+
+        if hole.score:
+            total_strokes += int(hole.score)
+
+    # Calculation for over/under par
+    score_vs_par = total_strokes - total_par
 
     return render(request, 'rounds/round_detail.html', {
         'round': round,
-        'holes': holes
+        'holes': holes,
+        'total_strokes': total_strokes,
+        'total_par': total_par,
+        'score_vs_par': score_vs_par,
     })
