@@ -70,7 +70,31 @@ def round_detail(request, round_id):
         total_par += hole.par
 
         if hole.score:
+            hole.score = int(hole.score)
             total_strokes += int(hole.score)
+
+            # Calculation for difference between score and par
+            hole.diff = hole.score - hole.par
+
+            # Determine result (birdie/bogey etc)
+            if hole.diff == -3:
+                hole.result = "Albatross"
+            elif hole.diff == -2:
+                hole.result = "Eagle"
+            elif hole.diff == -1:
+                hole.result = "Birdie"
+            elif hole.result == 0:
+                hole.result = "Par"
+            elif hole.result == 1:
+                hole.result = "Bogey"
+            elif hole.result == 2:
+                hole.result = "Double Bogey"
+            else:
+                hole.result = f"{hole.diff:+}"
+        else:
+            hole.diff = None
+            hole.result = ""
+            
 
     # Calculation for over/under par
     score_vs_par = total_strokes - total_par
