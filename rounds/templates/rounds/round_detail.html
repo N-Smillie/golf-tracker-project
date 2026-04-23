@@ -13,6 +13,7 @@
             <th>Hole</th>
             <th>Par</th>
             <th>Score</th>
+            <th>Result</th>
         </tr>
 
         {% for hole in holes %}
@@ -26,6 +27,27 @@
                     min="1"
                     value="{{ hole.score }}"
                 >
+            </td>
+            <td>
+                {% if hole.score %}
+
+                    {% if hole.diff > 0 %}
+                        +{{ hole.diff }}
+                    {% else %}
+                        {{ hole.diff }}
+                    {% endif %}
+
+                    <span class="{% if hole.diff < 0 %}
+                                    score-good
+                                {% elif hole.diff > 0 %}
+                                    score-bad
+                                {% else %}
+                                    score-neutral
+                                {% endif %}">
+                        {{ hole.result }}
+                    </span>
+
+                {% endif %}
             </td>
         </tr>
         {% endfor %}

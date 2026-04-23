@@ -89,6 +89,8 @@ def round_detail(request, round_id):
                 hole.result = "Bogey"
             elif hole.result == 2:
                 hole.result = "Double Bogey"
+            elif hole.result == 3:
+                hole.result = "Triple Bogey"
             else:
                 hole.result = f"{hole.diff:+}"
         else:
