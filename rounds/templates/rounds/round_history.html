@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Round History</h1>
+
+{% if rounds %}
+    <ul>
+        {% for round in rounds %}
+            <li>
+                <a href="{% url 'round_detail' round.id %}">
+                    {{ round.course.name }} - {{ round.date }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You haven't played any rounds yet!</p>
+{% endif %}
+
+<a href="{% url 'start_round' %}">Start New Round</a>
+
+{% endblock %}
