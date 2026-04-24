@@ -58,7 +58,8 @@ def round_detail(request, round_id):
         return redirect('round_detail', round_id=round.id)
     
     # Get existing scores
-    scores = {score.hole.id: score.strokes for score in round.scores.all()}
+    scores = {score.hole.id: score.strokes
+              for score in Score.objects.filter(round=round)}
 
     # Give score to each hole
     total_strokes = 0
