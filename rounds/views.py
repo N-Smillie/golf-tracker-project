@@ -63,6 +63,7 @@ def round_detail(request, round_id):
     # Give score to each hole
     total_strokes = 0
     total_par = 0
+    running_score = 0
 
     for hole in holes:
         hole.score = scores.get(hole.id)
@@ -75,6 +76,10 @@ def round_detail(request, round_id):
 
             # Calculation for difference between score and par
             hole.diff = hole.score - hole.par
+
+            # Running Total
+            running_score += hole.diff
+            hole.running_total = running_score
 
             # Determine result (birdie/bogey etc)
             if hole.diff == -3:
@@ -96,6 +101,7 @@ def round_detail(request, round_id):
         else:
             hole.diff = None
             hole.result = ""
+            hole.running_total = None
             
 
     # Calculation for over/under par

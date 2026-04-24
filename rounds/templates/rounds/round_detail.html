@@ -14,6 +14,7 @@
             <th>Par</th>
             <th>Score</th>
             <th>Result</th>
+            <th>Running</th>
         </tr>
 
         {% for hole in holes %}
@@ -47,6 +48,17 @@
                         {{ hole.result }}
                     </span>
 
+                {% endif %}
+            </td>
+            <td>
+                {% if hole.running_total is not None %}
+                    {% if hole.running_total > 0 %}
+                        +{{ hole.running_total }}
+                    {% elif hole.running_total < 0 %}
+                        {{ hole.running_total }}
+                    {% else %}
+                        Even
+                    {% endif %}
                 {% endif %}
             </td>
         </tr>
