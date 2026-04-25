@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RoundForm
 from .models import Round, Score
 from courses.models import Hole
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def start_round(request):
     if request.method == 'POST':
         form = RoundForm(request.POST)
@@ -23,7 +24,7 @@ def start_round(request):
         'form': form
     })
 
-
+@login_required
 def round_history(request):
     # Show only the logged-in user's rounds
     rounds = Round.objects.filter(user=request.user).order_by('-date')
@@ -32,9 +33,9 @@ def round_history(request):
         'rounds': rounds
     })
 
-
+@login_required
 def round_detail(request, round_id):
-    round = get_object_or_404(Round, id=round_id)
+    round = get_object_or_404(Round, id=round_id, user=request.user)
 
     # Determine which holes to show
     if round.holes_played == 'front9':
