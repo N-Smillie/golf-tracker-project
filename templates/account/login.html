@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h3>Sign In</h3>
+
+    <p>
+        Welcome back to Golf Tracker. Track your rounds and improve your game.
+        If you don’t have an account yet, 
+        <a href="{% url 'account_signup' %}">sign up</a>.
+    </p>
+
+    <form method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+        {% endif %}
+
+        <button type="submit">Sign In</button>
+    </form>
+</div>
+
+{% endblock %}

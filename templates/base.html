@@ -6,20 +6,61 @@
 <body>
 
     <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'start_round' %}">Start Round</a>
-        <a href="{% url 'course_list' %}">Courses</a>
-        <a href="{% url 'round_history' %}">Rounds</a>
-        <a href="{% url 'stats_dashboard' %}">Stats</a>
 
-        {% if user.is_authenticated %}
-            <a href="{% url 'profile' %}">Profile</a>
-            <a href="{% url 'account_logout' %}">Logout</a>
-        {% else %}
-            <a href="{% url 'account_login' %}">Login</a>
-            <a href="{% url 'account_signup' %}">Sign Up</a>
-        {% endif %}
-    </nav>
+    {% url 'home' as home_url %}
+    {% url 'start_round' as start_url %}
+    {% url 'course_list' as courses_url %}
+    {% url 'round_history' as rounds_url %}
+    {% url 'stats_dashboard' as stats_url %}
+    {% url 'profile' as profile_url %}
+
+    {% url 'account_login' as login_url %}
+    {% url 'account_signup' as signup_url %}
+    {% url 'account_logout' as logout_url %}
+
+    <a class="{% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">
+        Home
+    </a>
+
+    <a class="{% if request.path == start_url %}active{% endif %}" href="{% url 'start_round' %}">
+        Start Round
+    </a>
+
+    <a class="{% if request.path == courses_url %}active{% endif %}" href="{% url 'course_list' %}">
+        Courses
+    </a>
+
+    <a class="{% if request.path == rounds_url %}active{% endif %}" href="{% url 'round_history' %}">
+        Rounds
+    </a>
+
+    <a class="{% if request.path == stats_url %}active{% endif %}" href="{% url 'stats_dashboard' %}">
+        Stats
+    </a>
+
+    {% if user.is_authenticated %}
+
+        <a class="{% if request.path == profile_url %}active{% endif %}" href="{% url 'profile' %}">
+            Profile
+        </a>
+
+        <a class="{% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">
+            Logout
+        </a>
+
+    {% else %}
+
+        <a class="{% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">
+            Login
+        </a>
+
+        <a class="{% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}">
+            Sign Up
+        </a>
+
+    {% endif %}
+
+</nav>
 
 
     <ul>
