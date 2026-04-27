@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Stats Dashboard</h1>
+
+<h2>Courses Played</h2>
+<ul>
+    {% for round in rounds %}
+        <li>
+            {{ round.course.name }} - {{ round.date }}
+            ({{ round.total_strokes }} strokes)
+        </li>
+    {% empty %}
+        <li>No rounds played yet</li>
+    {% endfor %}
+</ul>
+
+<h2>Best Round</h2>
+    {% if best_round %}
+        <p>
+            {{ best_round.course.name }} -
+            {{ best_round.total_strokes }} strokes
+            ({{ best_round.date }})
+        </p>
+    {% else %}
+        <p>No rounds yet</p>
+    {% endif %}
+
+<h2>Worst Round</h2>
+    {% if worst_round %}
+        <p>
+            {{ worst_round.course.name }} -
+            {{ worst_round.total_strokes }} strokes
+            ({{ worst_round.date }})
+        </p>
+    {% else %}
+        <p>No rounds yet</p>
+    {% endif %}
+
+<h2>Average Score</h2>
+    {% if average_score %}
+        <p>{{ average_score|floatformat:1 }} strokes per round</p>
+    {% else %}
+        <p>No data yet</p>
+    {% endif %}
+
+    {% endblock %}
