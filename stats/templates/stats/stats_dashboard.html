@@ -16,33 +16,68 @@
     {% endfor %}
 </ul>
 
-<h2>Best Round</h2>
-    {% if best_round %}
-        <p>
-            {{ best_round.course.name }} -
-            {{ best_round.total_strokes }} strokes
-            ({{ best_round.date }})
-        </p>
-    {% else %}
-        <p>No rounds yet</p>
-    {% endif %}
+<h2>Full Rounds (18 Holes)</h2>
+{% if best_full %}
+    <p>
+        Best: {{ best_full.course.name }} -
+        {% if best_full.score_vs_par > 0 %}
+            +{{ best_full.score_vs_par }}
+        {% else %}
+            {{ best_full.score_vs_par }}
+        {% endif %}
+        ({{ best_full.total_strokes }} strokes)
+    </p>
 
-<h2>Worst Round</h2>
-    {% if worst_round %}
-        <p>
-            {{ worst_round.course.name }} -
-            {{ worst_round.total_strokes }} strokes
-            ({{ worst_round.date }})
-        </p>
-    {% else %}
-        <p>No rounds yet</p>
-    {% endif %}
+    <p>
+        Worst: {{ worst_full.course.name }} -
+        {% if worst_full.score_vs_par > 0 %}
+            +{{ worst_full.score_vs_par }}
+        {% else %}
+            {{ worst_full.score_vs_par }}
+        {% endif %}
+    </p>
 
-<h2>Average Score</h2>
-    {% if average_score %}
-        <p>{{ average_score|floatformat:1 }} strokes per round</p>
-    {% else %}
-        <p>No data yet</p>
-    {% endif %}
+    <p>
+        Average:
+        {% if avg_full > 0 %}
+            +{{ avg_full|floatformat:1 }}
+        {% else %}
+            {{ avg_full|floatformat:1 }}
+        {% endif %}
+    </p>
+{% else %}
+    <p>No full rounds yet</p>
+{% endif %}
 
+<h2>9 Hole Rounds</h2>
+{% if best_nine %}
+    <p>
+        Best: {{ best_nine.course.name }} -
+        {% if best_nine.score_vs_par > 0 %}
+            +{{ best_nine.score_vs_par }}
+        {% else %}
+            {{ best_nine.score_vs_par }}
+        {% endif %}
+    </p>
+
+    <p>
+        Worst: {{ worst_nine.course.name }} -
+        {% if worst_nine.score_vs_par > 0 %}
+            +{{ worst_nine.score_vs_par }}
+        {% else %}
+            {{ worst_nine.score_vs_par }}
+        {% endif %}
+    </p>
+
+    <p>
+        Average:
+        {% if avg_nine > 0 %}
+            +{{ avg_nine|floatformat:1 }}
+        {% else %}
+            {{ avg_nine|floatformat:1 }}
+        {% endif %}
+    </p>
+{% else %}
+    <p>No 9-hole rounds yet</p>
+{% endif %}
     {% endblock %}
