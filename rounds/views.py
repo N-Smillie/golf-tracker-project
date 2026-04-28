@@ -38,15 +38,17 @@ def round_detail(request, round_id):
     round = get_object_or_404(Round, id=round_id, user=request.user)
 
     # Determine which holes to show
+    holes_ordered = round.course.holes.order_by('number')
     if round.holes_played == 'front9':
-        holes = round.course.holes.all()[:9]
+        holes = holes_ordered[:9]
     elif round.holes_played == 'back9':
-        holes = round.course.holes.all()[9:]
+        holes = holes_ordered[9:]
     else:
-        holes = round.course.holes.all()
+        holes = holes_ordered
 
     if request.method == 'POST':
-        for hole in holes:
+        allowed_holes = holes
+        for hole in allowed_holes:
             strokes = request.POST.get(f'hole_{hole.id}')
 
             if strokes:

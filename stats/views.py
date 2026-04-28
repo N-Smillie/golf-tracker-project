@@ -1,16 +1,21 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from rounds.models import Round
+from rounds.models import Round, Score
 
-# Create your views here.
+
+@login_required
 def stats_dashboard(request):
     rounds = Round.objects.filter(user=request.user)
 
     full_rounds = []
     nine_rounds = []
+    valid_rounds = []
 
     for round in rounds:
         scores = round.scores.all()
+
+        if not scores.exists():
+            continue
 
         total_strokes = 0
         total_par = 0
@@ -19,68 +24,68 @@ def stats_dashboard(request):
             total_strokes += score.strokes
             total_par += score.hole.par
 
-        if total_strokes == 0:
-            continue
-
-        score_vs_par = total_strokes - total_par
-
         round.total_strokes = total_strokes
         round.total_par = total_par
-        round.score_vs_par = score_vs_par
+        round.score_vs_par = total_strokes - total_par
 
-        # Separate into 9 or 18 hole rounds
+        valid_rounds.append(round)
+
+
+        # Separate into 9/18 holes
+
         if round.holes_played == 'full18':
             full_rounds.append(round)
         else:
             nine_rounds.append(round)
 
-        # Best round
-        def get_best(rounds):
-            if not rounds:
-                return None
+    # Best Round
+    def get_best(round_list):
+        if not round_list:
+            return None
 
-            best = rounds[0]
+        best = round_list[0]
+        for r in round_list:
+            if r.score_vs_par < best.score_vs_par:
+                best = r
+        return best
 
-            for r in rounds:
-                if r.score_vs_par < best.score_vs_par:
-                    best = r
+    # Worst Round
+    def get_worst(round_list):
+        if not round_list:
+            return None
 
-            return best
-        
-        # Worst round
-        def get_worst(rounds):
-            if not rounds:
-                return None
+        worst = round_list[0]
+        for r in round_list:
+            if r.score_vs_par > worst.score_vs_par:
+                worst = r
+        return worst
 
-            worst = rounds[0]
+    best_full = get_best(full_rounds)
+    worst_full = get_worst(full_rounds)
 
-            for r in rounds:
-                if r.score_vs_par > worst.score_vs_par:
-                    worst = r
+    best_nine = get_best(nine_rounds)
+    worst_nine = get_worst(nine_rounds)
 
-            return worst
-        
-        # Calculate average score vs par
-        def get_average(rounds):
-            if not rounds:
-                return None
 
-            total = 0
+    # Calculate average
+    def get_average(round_list):
+        if not round_list:
+            return None
 
-            for r in rounds:
-                total += r.score_vs_par
+        total = 0
+        for r in round_list:
+            total += r.score_vs_par
 
-            return total / len(rounds)
-        
-        best_full = get_best(full_rounds)
-        worst_full = get_worst(full_rounds)
-        avg_full = get_average(full_rounds)
+        return total / len(round_list)
 
-        best_nine = get_best(nine_rounds)
-        worst_nine = get_worst(nine_rounds)
-        avg_nine = get_average(nine_rounds)
+    avg_full = get_average(full_rounds)
+    avg_nine = get_average(nine_rounds)
 
-        context = {
+   
+    # Context
+    context = {
+        'rounds': valid_rounds,
+
         'best_full': best_full,
         'worst_full': worst_full,
         'avg_full': avg_full,
@@ -89,6 +94,6 @@ def stats_dashboard(request):
         'worst_nine': worst_nine,
         'avg_nine': avg_nine,
     }
-        
-        return render(request, 'stats/stats_dashboard.html', context)
+
+    return render(request, 'stats/stats_dashboard.html', context)
     
