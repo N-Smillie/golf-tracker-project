@@ -2,18 +2,21 @@
 
 {% block content %}
 
-<h1>Courses</h1>
+<h1 class="mb-4">Courses</h1>
 
-<ul>
+<div class="row">
     {% for course in courses %}
-        <li>
-            <a href="{% url 'course_detail' course.slug %}">
-                {{ course.name }}
-            </a>
-        </li>
-    {% empty %}
-        <li>No courses found</li>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.name }}</h5>
+                    <a href="{% url 'course_detail' course.slug %}" class="btn btn-primary">
+                        View Course
+                    </a>
+                </div>
+            </div>
+        </div>
     {% endfor %}
-</ul>
+</div>
 
 {% endblock %}
