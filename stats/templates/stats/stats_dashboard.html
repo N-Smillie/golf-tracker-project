@@ -2,82 +2,78 @@
 
 {% block content %}
 
-<h1>Stats Dashboard</h1>
+<div class="container mt-5">
+    <h2 class="mb-4">Stats Dashboard</h2>
 
-<h2>Courses Played</h2>
-<ul>
-    {% for round in rounds %}
-        <li>
-            {{ round.course.name }} - {{ round.date }}
-            ({{ round.total_strokes }} strokes)
-        </li>
-    {% empty %}
-        <li>No rounds played yet</li>
-    {% endfor %}
-</ul>
+    <!-- Summary -->
+    <div class="row mb-4">
 
-<h2>Full Rounds (18 Holes)</h2>
-{% if best_full %}
-    <p>
-        Best: {{ best_full.course.name }} -
-        {% if best_full.score_vs_par > 0 %}
-            +{{ best_full.score_vs_par }}
-        {% else %}
-            {{ best_full.score_vs_par }}
-        {% endif %}
-        ({{ best_full.total_strokes }} strokes)
-    </p>
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h6>Total Rounds</h6>
+                    <h3>{{ rounds|length }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <p>
-        Worst: {{ worst_full.course.name }} -
-        {% if worst_full.score_vs_par > 0 %}
-            +{{ worst_full.score_vs_par }}
-        {% else %}
-            {{ worst_full.score_vs_par }}
-        {% endif %}
-    </p>
+    <!-- Courses Played -->
+     <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5>Courses Played</h5>
 
-    <p>
-        Average:
-        {% if avg_full > 0 %}
-            +{{ avg_full|floatformat:1 }}
-        {% else %}
-            {{ avg_full|floatformat:1 }}
-        {% endif %}
-    </p>
-{% else %}
-    <p>No full rounds yet</p>
-{% endif %}
+            <ul class="list-group">
+                {% for round in rounds %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>{{ round.course.name }}</span>
+                    <span>
+                        Score: {{ round.score_vs_par }} ({{ round.date }})
+                    </span>
+                </li>
+                {% empty %}
+                <li class="list-group-item">No rounds played yet</li>
+                {% endfor %}
+            </ul>
+        </div>
+     </div>
 
-<h2>9 Hole Rounds</h2>
-{% if best_nine %}
-    <p>
-        Best: {{ best_nine.course.name }} -
-        {% if best_nine.score_vs_par > 0 %}
-            +{{ best_nine.score_vs_par }}
-        {% else %}
-            {{ best_nine.score_vs_par }}
-        {% endif %}
-    </p>
+    <div class="row">
 
-    <p>
-        Worst: {{ worst_nine.course.name }} -
-        {% if worst_nine.score_vs_par > 0 %}
-            +{{ worst_nine.score_vs_par }}
-        {% else %}
-            {{ worst_nine.score_vs_par }}
-        {% endif %}
-    </p>
+        <!-- Full rounds -->
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>Full Rounds</h5>
 
-    <p>
-        Average:
-        {% if avg_nine > 0 %}
-            +{{ avg_nine|floatformat:1 }}
-        {% else %}
-            {{ avg_nine|floatformat:1 }}
-        {% endif %}
-    </p>
-{% else %}
-    <p>No 9-hole rounds yet</p>
-{% endif %}
+                    {% if best_full %}
+                        <p><strong>Best:</strong> {{ best_full.score_vs_par }}</p>
+                        <p><strong>Worst:</strong> {{ worst_full.score_vs_par }}</p>
+                        <p><strong>Average:</strong> {{ avg_full|floatformat:1 }}</p>
+                    {% else %}
+                        <p>No full rounds yet</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- 9 hole rounds -->
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>9 Hole Rounds</h5>
+
+                    {% if best_nine %}
+                        <p><strong>Best:</strong> {{ best_nine.score_vs_par }}</p>
+                        <p><strong>Worst:</strong> {{ worst_nine.score_vs_par }}</p>
+                        <p><strong>Average:</strong> {{ avg_nine|floatformat:1 }}</p>
+                    {% else %}
+                        <p>No 9 hole rounds yet</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
     {% endblock %}
