@@ -25,11 +25,21 @@
 
             <ul class="list-group">
                 {% for round in rounds %}
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>{{ round.course.name }}</span>
-                    <span>
-                        Score: {{ round.score_vs_par }} ({{ round.date }})
-                    </span>
+                <li class="list-group-item">
+    
+                    <div class="d-flex flex-column flex-md-row justify-content-between">
+
+                        <div>
+                            <strong>{{ round.course.name }}</strong>
+                        </div>
+
+                        <div class="text-md-end">
+                            Score: {{ round.score_vs_par }}
+                            <span>{{ round.date }}</span>
+                        </div>
+
+                    </div>
+
                 </li>
                 {% empty %}
                 <li class="list-group-item">No rounds played yet</li>
