@@ -63,6 +63,17 @@ a {
 /* Tables */
 
 /* Buttons */
+.btn.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--secondary-color)
+}
 
 /* Scores */
 .score-good {
