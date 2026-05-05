@@ -1,45 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* CSS Variables */
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+    --secondary-font: 'Inter', sans-serif;
+}
 
 /* Global styles */
-
-/* Body */
 body {
-    background-color: #000000;
+    font-family: var(--secondary-font);
 }
 
-.card {
-    border-radius: 12px;
-    border: none;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--primary-font);
 }
-
-.card-body {
-    padding: 1.5rem;
-}
-
-.score-good {
-    color: green;
-    font-weight: bold;
-}
-
-.score-bad {
-    color: red;
-    font-weight: bold;
-}
-
-.score-neutral {
-    color: gray;
-    font-weight: bold;
-}
-
-/* Par colour coding */
-.par-3 {
-    background-color: #6fc3ff;
-}
-
-.par-4 {
-    background-color: #7affb4;
-}
-
-.par-5 {
-    background-color: #ffc67b;
-}
+/* Body */
