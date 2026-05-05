@@ -9,7 +9,7 @@
     --secondary-color: #4caf50;
     --card-color: #ffffff;
     --text-color: #212529;
-    --good-score: #ffee00;
+    --good-score: #388e3c;
     --bad-score: #ff0000;
     --neutral-score: #63676b;
 
@@ -65,3 +65,16 @@ a {
 /* Buttons */
 
 /* Scores */
+.score-good {
+    color: var(--good-score);
+    font-weight: 600;
+}
+
+.score-bad {
+    color: var(--bad-score);
+    font-weight: 600;
+}
+
+.score-neutral {
+    color: var(--neutral-score)
+}
