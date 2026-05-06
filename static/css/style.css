@@ -65,6 +65,12 @@ a:hover {
     padding: 1.5rem;
 }
 
+.course-img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    padding: 10px;
+}
 /* Tables */
 .table.scorecard-table th {
     background-color: #f1f3f5;

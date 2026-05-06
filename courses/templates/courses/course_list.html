@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -7,12 +8,15 @@
 <div class="row">
     {% for course in courses %}
         <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">{{ course.name }}</h5>
-                    <a href="{% url 'course_detail' course.slug %}" class="btn btn-primary">
-                        View Course
-                    </a>
+            <div class="card course-card h-100">
+                {% if course.image %}
+                    <img src="{% static course.image %}" class="course-img" alt="{{ course.name }}">
+                {% endif %}
+                <div class="card-body text-center">
+                        <h5 class="card-title">{{ course.name }}</h5>
+                        <a href="{% url 'course_detail' course.slug %}" class="btn btn-primary">
+                            View Course
+                        </a>
                 </div>
             </div>
         </div>
