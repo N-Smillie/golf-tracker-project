@@ -123,3 +123,23 @@ a:hover {
 .score-neutral {
     color: var(--neutral-score)
 }
+
+
+@media (max-width: 768px) {
+    .card .card-body {
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .table {
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
