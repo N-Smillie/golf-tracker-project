@@ -27,7 +27,15 @@
                         {% for hole in holes %}
                         <tr>
                             <td>{{ hole.number }}</td>
-                            <td>{{ hole.par }}</td>
+                            <td class="
+                                    {% if hole.par == 3 %}
+                                        par-3
+                                    {% elif hole.par == 4 %}
+                                        par-4
+                                    {% elif hole.par == 5 %}
+                                        par-5
+                                    {% endif %}
+                                ">{{ hole.par }}</td>
 
                             <td>
                                 <input 
