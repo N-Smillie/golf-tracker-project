@@ -61,6 +61,23 @@ a {
 }
 
 /* Tables */
+.table.scorecard-table th {
+    background-color: #f1f3f5;
+    text-align: center;
+    font-weight: 600;
+}
+
+.table.scorecard-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.score-input {
+    width: 60px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4px;
+}
 
 /* Buttons */
 .btn.btn-primary {
