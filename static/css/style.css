@@ -124,6 +124,20 @@ a:hover {
     background-color: var(--secondary-color)
 }
 
+.btn-outline-secondary {
+    border-radius: 8px;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
 /* Scores */
 .score-good {
     color: var(--good-score);
