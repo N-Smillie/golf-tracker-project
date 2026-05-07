@@ -2,12 +2,24 @@
 
 {% block content %}
 
-<div class="mb-3">
+<!-- Header -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+        <h2 class="mb-0">{{ round.course.name }}</h2>
+
+        <span>
+            {{ round.date }} - {{ round.get_holes_played_display }}
+        </span>
+    </div>
+
     <a href="{% url 'round_history' %}" class="btn btn-outline-secondary">
         Back
     </a>
+
 </div>
 
+<!-- Score input -->
 <div class="card">
     <div class="card-body">
 
