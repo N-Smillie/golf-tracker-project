@@ -53,6 +53,31 @@ a:hover {
     color: white;
 }
 
+.custom-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    text-decoration: none;
+    font-family: var(--primary-font);
+    font-size: 1.3rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.custom-brand:hover {
+    text-decoration: none;
+}
+
+.brand-main {
+    color: white;
+}
+
+.brand-accent {
+    color: #a77f22;
+}
+
 /* Cards */
 .card {
     background-color: var(--card-color);
@@ -77,6 +102,12 @@ a:hover {
 .course-detail-logo {
     width: 120px;
     height: 120px;
+    object-fit: contain;
+}
+
+.brand-logo {
+    width: 34px;
+    height: 34px;
     object-fit: contain;
 }
 

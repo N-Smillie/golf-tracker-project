@@ -4,6 +4,8 @@
 <html>
   <head>
     <title>Golf Tracker</title>
+    <!-- Favicon -->
+     <link rel="icon" type="image/svg+xml" href="{% static 'images/golf-logo.png' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -28,7 +30,15 @@
         {% url 'account_login' as login_url %} 
         {% url 'account_signup' as signup_url %}
         {% url 'account_logout' as logout_url %}
-        <a class="navbar-brand" href="{% url 'home' %}"> Golf Tracker </a>
+        <a class="navbar-brand custom-brand" href="{% url 'home' %}">
+          <img 
+            src="{% static 'images/golf-logo.png' %}" 
+            alt="Golf Tracker Logo"
+            class="brand-logo"
+          >
+          <span class="brand-main">GOLF</span>
+          <span class="brand-accent">TRACKER</span>
+        </a>
 
         <button
           class="navbar-toggler"
