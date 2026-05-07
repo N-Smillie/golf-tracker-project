@@ -65,12 +65,21 @@ a:hover {
     padding: 1.5rem;
 }
 
+/* images */
+
 .course-img {
     width: 100%;
     height: 160px;
     object-fit: contain;
     padding: 10px;
 }
+
+.course-detail-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
 /* Tables */
 .table.scorecard-table th {
     background-color: #f1f3f5;
@@ -131,6 +140,8 @@ a:hover {
 }
 
 
+
+/* Media Queries */
 @media (max-width: 768px) {
     .card .card-body {
         padding: 1rem;

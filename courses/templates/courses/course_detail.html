@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
 <div class="container-fluid py-4">
@@ -9,6 +9,16 @@
             <h2>{{ course.name }}</h2>
             <span>Course Scorecard</span>
         </div>
+
+        {% if course.image %}
+        <div class="my-3 my-md-0">
+            <img 
+                src="{% static course.image %}" 
+                alt="{{ course.name }}"
+                class="course-detail-logo"
+            >
+        </div>
+        {% endif %}
 
         <div class="mt-3 mt-md-0">
             <a href="{% url 'start_round' %}" class="btn btn-primary">
