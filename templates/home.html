@@ -1,6 +1,108 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h1>Welcome to Golf Tracker</h1>
-<p>Track your scores and improve your game.</p>
+<!-- Hero Section -->
+ <section class="hero-section mb-5">
+
+    <div class="hero-overlay">
+
+        <div class="container text-center">
+
+            <h1 class="hero-title">
+                Track Every Round.
+            </h1>
+
+            <p class="hero-subtitle">
+                Record scores, analyse performance, and improve your golf game.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Actions cards -->
+<section class="mb-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- Start Round -->
+            <div class="col-12 col-md-4">
+
+                <div class="card action-card h-100 text-center">
+
+                    <div class="card-body">
+
+                        <h4>Start Round</h4>
+
+                        <p>
+                            Record scores during your round.
+                        </p>
+
+                        <a href="{% url 'start_round' %}" class="btn btn-primary">
+                            Play Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Courses -->
+            <div class="col-12 col-md-4">
+
+                <div class="card action-card h-100 text-center">
+
+                    <div class="card-body">
+
+                        <h4>Courses</h4>
+
+                        <p>
+                            Browse all courses and scorecards.
+                        </p>
+
+                        <a href="{% url 'course_list' %}" class="btn btn-primary">
+                            View Courses
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Stats -->
+            <div class="col-12 col-md-4">
+
+                <div class="card action-card h-100 text-center">
+
+                    <div class="card-body">
+
+                        <h4>Stats Dashboard</h4>
+
+                        <p>
+                            Analyse rounds and track your improvement.
+                        </p>
+
+                        <a href="{% url 'stats_dashboard' %}" class="btn btn-primary">
+                            View Stats
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 {% endblock %}

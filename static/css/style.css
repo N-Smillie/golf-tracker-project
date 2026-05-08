@@ -184,7 +184,54 @@ a:hover {
     color: var(--neutral-score)
 }
 
+/* Hero section */
+.hero-section {
+    position: relative;
+    max-height: 60vh;
 
+    background-image: url('/static/images/home-hero.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.45);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    color: white;
+
+    font-size: 3rem;
+    font-weight: 800;
+
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    color: white;
+
+    font-size: 1.2rem;
+}
+
+/* Homepage Action Cards */
+
+.action-card {
+    border: none;
+
+    border-radius: 14px;
+}
+
+.action-card .card-body {
+    padding: 2rem;
+}
 
 /* Media Queries */
 @media (max-width: 768px) {
