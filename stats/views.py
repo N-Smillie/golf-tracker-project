@@ -10,6 +10,7 @@ def stats_dashboard(request):
     full_rounds = []
     nine_rounds = []
     valid_rounds = []
+    unique_courses = rounds.values('course').distinct().count()
 
     for round in rounds:
         scores = round.scores.all()
@@ -93,6 +94,8 @@ def stats_dashboard(request):
         'best_nine': best_nine,
         'worst_nine': worst_nine,
         'avg_nine': avg_nine,
+
+        'unique_courses': unique_courses,
     }
 
     return render(request, 'stats/stats_dashboard.html', context)
