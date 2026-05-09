@@ -5,7 +5,9 @@ from rounds.models import Round, Score
 
 @login_required
 def stats_dashboard(request):
-    rounds = Round.objects.filter(user=request.user)
+    rounds = Round.objects.filter(
+        user=request.user
+    ).order_by('-date')
 
     full_rounds = []
     nine_rounds = []
