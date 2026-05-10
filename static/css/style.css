@@ -142,6 +142,10 @@ a:hover {
     background-color: #66bb6a;
 }
 
+.scorecard-table th,
+.scorecard-table td {
+    padding: 1rem 0.5rem;
+}
 /* Buttons */
 .btn.btn-primary {
     background-color: var(--primary-color);
