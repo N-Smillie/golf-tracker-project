@@ -4,12 +4,31 @@
 
 <div class="container-fluid py-4">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="mb-0">
+                    Start New Round
+                </h2>
+
+                <span>
+                    Select a course and begin tracking your round
+                </span>
+
+            </div>
+
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                    Home
+                </a>
+
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-5 mt-5">
 
             <div class="card">
                 <div class="card-body">
-
-                    <h3 class="mb-4 text-center">Start New Round</h3>
+                    <h5 class="card-title text-center mb-4">Start New Round</h5>
 
                     <form method="POST">
                         {% csrf_token %}
