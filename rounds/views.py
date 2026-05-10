@@ -118,3 +118,20 @@ def round_detail(request, round_id):
         'total_par': total_par,
         'score_vs_par': score_vs_par,
     })
+
+# Round deletion
+@login_required
+def delete_round(request, round_id):
+
+    round = get_object_or_404(
+        Round,
+        id=round_id,
+        user=request.user
+    )
+
+    if request.method == 'POST':
+        round.delete()
+
+        return redirect('round_history')
+
+    return redirect('round_detail', round_id=round.id)

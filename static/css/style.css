@@ -146,6 +146,7 @@ a:hover {
 .scorecard-table td {
     padding: 1rem 0.5rem;
 }
+
 /* Buttons */
 .btn.btn-primary {
     background-color: var(--primary-color);
@@ -170,6 +171,20 @@ a:hover {
 .btn-outline-secondary:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
+    color: white;
+}
+
+.btn.btn-danger {
+    background-color: #c0392b;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    color: white;
+}
+
+.btn.btn-danger:hover {
+    background-color: #ff3f2e;
     color: white;
 }
 
