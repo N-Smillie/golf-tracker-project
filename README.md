@@ -87,10 +87,36 @@ As a user, I want:
 
 ## Wireframes
 ## Design Choices
+The application uses a golf-inspired colour palette using greens and neutral tones to create a clean and professional appearance.
+
 ### Color Scheme
+* Dark Green (#1b5e20) - Navigation & primary buttons
+* Light Green (#4caf50) - Home & Back buttons
+* Sand (#fdd299) - Page background
+* White (#ffffff) - Card background colour
+* Dark Grey (#212529) - Text colour
+
+Additional colours were used to visually distinguish par 3, par 4, and par 5 holes as well as good or bad scores while maintaining readability and consistency with the overall theme.
+
 ### Fonts
+* **Montserrat:** used for headings and branding elements to provide a strong and modern appearance
+* **Inter:** used for body text to improve readability across desktop and mobile devices
+
 ### Layout
+The application was designed using a card-based layout to organise content into clear and manageable sections. Bootstrap was used throughout the project to ensure pages are responsive across all screen sizes.
+
+Consistent spacing, button styling, and navigation placement were applied across all pages to create an intuitive user experience.
+
+Cards and tables were customised with responsive styling to allow readability on smaller screen sizes.
+
+![Course List](docs/images/course-list-ss.png)
+![Course List Mobile Screen](docs/images/course-list-mobile.png)
+
 ### Imagery
+Course logo images were used throughout the application to create stronger visual identity and improve recognition between courses. Images were resized and optimised before use to reduce file size and improve loading performance.
+
+The homepage uses a large hero section with an image of St Andrews to create a more engaging first impression while maintaining the clean and professional aesthetic used throughout the rest of the application.
+![Homepage](docs/images/homepage-ss.png)
 
 # Database Design
 ## Models
