@@ -116,6 +116,7 @@ Cards and tables were customised with responsive styling to allow readability on
 Course logo images were used throughout the application to create stronger visual identity and improve recognition between courses. Images were resized and optimised before use to reduce file size and improve loading performance.
 
 The homepage uses a large hero section with an image of St Andrews to create a more engaging first impression while maintaining the clean and professional aesthetic used throughout the rest of the application.
+
 ![Homepage](docs/images/homepage-ss.png)
 
 # Database Design
@@ -124,7 +125,65 @@ The homepage uses a large hero section with an image of St Andrews to create a m
 
 # Features
 ## Existing Features
+### User Authentication
+- Users can create an account
+- Users can log in and log out of their account
+- Django authentication allows users to see their specific data while preventing showing data from other users
+
+### Homepage
+- Responsive homepage with hero section to detail what the application is used for
+- Navigation bar and cards for easy access to key pages within the application
+
+### Course List
+- Users can browse available golf courses
+- Each course includes a logo image
+- Responsive card layout across screen sizes
+
+### Course Detail
+- Users can view course scorecards
+- Par values are colour coded for readability
+- Users can start a round directly from the page
+
+### Start Round
+- Users can select a course
+- Users must choose front 9, back 9, or full 18 holes
+
+### Round Detail / Score Entry
+- Users can enter and update scores for each hole
+- Running totals are calculated automatically
+- Score versus par is displayed dynamically
+- Responsive scorecard layout improves usability on mobile devices
+
+### Round Summary
+- Total strokes are calculated automatically
+- Total par and overall score versus par are displayed
+- Round performance updates after score submission
+
+### Round History
+- Users can view previous rounds
+- Rounds are ordered by most recent first
+- Each round displays date, course, holes played and link to see detailed view of the round
+
+### Statistics Dashboard
+- Displays total rounds played
+- Displays best, worst, and average scores
+- Tracks unique courses played
+- Displays 5 most recent rounds
+
+### Delete Round
+- Users can delete unwanted rounds
+- Bootstrap modal confirmation prevents accidental deletion
+- Deleted rounds are removed from round history and statistics
+
 ## CRUD Functionality
+**Create:** Users can create new golf rounds
+
+**Read:** Users can view courses, rounds, statistics, and scorecards
+
+**Update:** Users can update scores for existing rounds
+
+**Delete:** Users can delete rounds using a confirmation modal
+
 
 # Technologies Used
 ## Languages
