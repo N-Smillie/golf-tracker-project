@@ -128,6 +128,7 @@ The Course model stores information about each golf course.
 - name
 - slug
 - image
+
 Each course contains multiple holes linked through a one-to-many relationship.
 
 ### Hole
@@ -135,6 +136,7 @@ The Hole model stores individual hole data for a golf course, including the hole
 - course
 - number
 - par
+
 Each hole belongs to a single course.
 
 ### Round
@@ -143,6 +145,7 @@ The Round model stores information about a user's golf round.
 - course
 - date
 - holes_played
+
 Each round belongs to one user and one course.
 
 ### Score
@@ -150,6 +153,7 @@ The Score model stores the strokes taken on each hole during a round.
 - round
 - hole
 - strokes
+
 Each score connects a round with a hole and stores the number of strokes entered by the user.
 
 ## Relationships
@@ -225,8 +229,23 @@ The models are connected using ForeignKey relationships:
 
 # Technologies Used
 ## Languages
+* HTML
+* CSS
+* Javascript
+* Python
+* SQL
+
 ## Frameworks & Libraries
+* Bootstrap
+* Google Fonts
+* Django
+* Django Allauth
+
 ## Tools
+* Github
+* VS Code
+* Heroku
+* Chrome DevTools
 
 # Testing
 ## Manual Testing
@@ -238,7 +257,19 @@ The models are connected using ForeignKey relationships:
 ## Bugs & Fixes
 
 # Deployment
-## GitHub Deployment
+## GitHub Repository
+The project repository was created using GitHub for version control and project management.
+
+[Golf Tracker Repository](https://github.com/n-smillie/golf-tracker-project)
+
 ## Heroku Deployment
+The application was deployed using Heroku.
+
+1. Create a new Heroku app
+2. Connect the Heroku app to the GitHub repository
+3. Configure the required environment variables (Config Vars)
+4. Deploy the project from the main branch
+5. Open the live application
+
 
 # Credits
