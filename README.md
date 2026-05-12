@@ -120,8 +120,46 @@ The homepage uses a large hero section with an image of St Andrews to create a m
 ![Homepage](docs/images/homepage-ss.png)
 
 # Database Design
+The database structure was designed to allow users to create and manage golf rounds while maintaining clear relationships between courses, holes, rounds, and scores.
+
 ## Models
+### Course
+The Course model stores information about each golf course.
+- name
+- slug
+- image
+Each course contains multiple holes linked through a one-to-many relationship.
+
+### Hole
+The Hole model stores individual hole data for a golf course, including the hole number and par value.
+- course
+- number
+- par
+Each hole belongs to a single course.
+
+### Round
+The Round model stores information about a user's golf round.
+- user
+- course
+- date
+- holes_played
+Each round belongs to one user and one course.
+
+### Score
+The Score model stores the strokes taken on each hole during a round.
+- round
+- hole
+- strokes
+Each score connects a round with a hole and stores the number of strokes entered by the user.
+
 ## Relationships
+The models are connected using ForeignKey relationships:
+- A Course has many Holes
+- A User can have many Rounds
+- A Round belongs to one Course
+- A Round has many Scores
+- A Hole can appear in many Scores
+- A Score belongs to one Round and one Hole
 
 # Features
 ## Existing Features
