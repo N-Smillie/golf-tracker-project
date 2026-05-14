@@ -248,8 +248,6 @@ The models are connected using ForeignKey relationships:
 * Chrome DevTools
 
 # Testing
-## Manual Testing
-
 
 ## User Story Testing
 **User Story 1**
@@ -348,13 +346,13 @@ To see my total score and overall performance after finishing a round, so that I
 To view my previous rounds, so that I can track my progress over time
 
 **Expected Result:**
-* 
-* 
+* User can view previous rounds
+* User can view course, date and round information
 
 **Test Steps**
-1. 
-2. 
-3. 
+1. Open the Round History page
+2. Review displayed rounds
+3. Open a round detail page
 
 **Result: Pass**
 
@@ -362,25 +360,46 @@ To view my previous rounds, so that I can track my progress over time
 To delete an unwanted round, so that I can remove incorrect or unnecessary records from my history
 
 **Expected Result:**
-* 
-* 
+* User can open a delete confirmation modal
+* Round is permanently removed after confirmation
 
 **Test Steps**
-1. 
-2. 
-3. 
+1. Open a round detail page
+2. Click Delete Round
+3. Confirm deletion in the modal
+4. Verify round is deleted
 
 **Result: Pass**
 
 
 ## Controls
+All interactive controls were manually tested throughout the application.
 
+### Buttons
+- Navigation buttons redirect to correct pages
+- Form submission buttons save data correctly
+- Delete button triggers Bootstrap confirmation modal
+
+### Forms
+- Required fields prevent empty submissions
+- Number inputs only accept valid numeric values
+- Invalid login credentials display errors correctly
+
+### Navigation
+- Navbar links work correctly on all pages
 
 ## Responsive Design
 
 
 ## Visual Feedback
+The application includes visual feedback throughout to improve usability and user experience.
 
+### Examples
+- Buttons include hover states
+- Score results are colour coded
+- Par values are colour coded
+- Forms display validation feedback
+- Running totals update dynamically during rounds
 
 ## Validator Testing
 
