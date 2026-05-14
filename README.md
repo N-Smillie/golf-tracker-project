@@ -389,7 +389,11 @@ All interactive controls were manually tested throughout the application.
 - Navbar links work correctly on all pages
 
 ## Responsive Design
+The application was tested across multiple screen sizes using Chrome DevTools.
 
+- On smaller screen sizes, the navigation bar collapses into a responsive hamburger menu
+- Bootstrap cards stack vertically on smaller screen sizes
+- Score input table was optimized for smaller screen sizes by reducing table width and improving spacing to minimise horizontal scrolling
 
 ## Visual Feedback
 The application includes visual feedback throughout to improve usability and user experience.
