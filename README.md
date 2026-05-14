@@ -249,12 +249,144 @@ The models are connected using ForeignKey relationships:
 
 # Testing
 ## Manual Testing
+
+
 ## User Story Testing
+**User Story 1**
+To create an account, so that I can save and track my golf scores over time
+
+**Expected Result:**
+* User can access the signup page
+* User account is created successfully after entering valid details
+
+**Test Steps**
+1. Open the signup page
+2. Enter a username and password
+3. Submit the registration form
+
+**Result: Pass**
+
+**User Story 2**
+To log in to my account, so that I can access my previous rounds and personal statistics
+
+**Expected Result:**
+* User can log in using valid credentials
+* Invalid credentials display error message
+* User is redirected to the homepage after login
+
+**Test Steps**
+1. Open the login page
+2. Enter invalid username and password
+3. Enter valid username and password
+4. Submit the login form
+5. Verify login redirects to homepage
+
+**Result: Pass**
+
+**User Story 3 & 4**
+To choose a golf course before starting a round, so that the correct holes and par values are loaded
+
+To select whether I am playing the front 9, back 9, or full 18 holes, so that the application shows the correct holes
+
+**Expected Result:**
+* User must select a course from the available list
+* User must choose either front 9, back 9, or full 18
+* Selected course loads the correct scorecard
+* Only the correct holes are displayed
+
+**Test Steps**
+1. Open the Start Round page
+2. Select a golf course & holes played option
+3. Start the round
+4. Verify diplayed course & holes match selections
+
+**Result: Pass**
+
+**User Story 5**
+To input my strokes for each hole, so that my performance is recorded accurately
+
+**Expected Result:**
+* User can enter scores for each hole
+* Scores are saved correctly after submission
+
+**Test Steps**
+1. Start new round
+2. Enter scores into the score inputs
+3. Click Save Scores
+
+**Result: Pass**
+
+**User Story 6**
+To see whether I am over or under par for each hole, so that I can understand my performance throughout the round
+
+**Expected Result:**
+* The score vs par is calculated correctly
+* Birdie, bogey, par and other results display accurately
+
+**Test Steps**
+1. Enter scores for multiple holes
+2. Save scores
+3. Verify score differences and labels are correct
+
+**Result: Pass**
+
+**User Story 7**
+To see my total score and overall performance after finishing a round, so that I can evaluate how well I played
+
+**Expected Result:**
+* Total strokes and total par are calculated correctly
+* Overall score is displayed accurately
+
+**Test Steps**
+1. Complete score entry for a round
+2. Save scores
+3. Review the round summary section
+
+**Result: Pass**
+
+**User Story 8**
+To view my previous rounds, so that I can track my progress over time
+
+**Expected Result:**
+* 
+* 
+
+**Test Steps**
+1. 
+2. 
+3. 
+
+**Result: Pass**
+
+**User Story 9**
+To delete an unwanted round, so that I can remove incorrect or unnecessary records from my history
+
+**Expected Result:**
+* 
+* 
+
+**Test Steps**
+1. 
+2. 
+3. 
+
+**Result: Pass**
+
+
 ## Controls
+
+
 ## Responsive Design
+
+
 ## Visual Feedback
+
+
 ## Validator Testing
+
+
 ## Bugs & Fixes
+
 
 # Deployment
 ## GitHub Repository
