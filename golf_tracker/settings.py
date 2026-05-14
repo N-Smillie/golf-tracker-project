@@ -15,6 +15,7 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '.herokuapp.com',
@@ -168,3 +169,71 @@ STORAGES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+LOG_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+
+    "formatters": {
+        "verbose": {
+            "format": "[{levelname}] {asctime} {name} ({filename}:{lineno}) - {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "[{levelname}] {message}",
+            "style": "{",
+        },
+    },
+
+    "handlers": {
+        # IMPORTANT: Heroku captures stdout/stderr automatically
+        "console": {
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,   # <-- ensures Heroku log capture
+            "formatter": "verbose",
+        },
+        "error_console": {
+            "class": "logging.StreamHandler",
+            "stream": sys.stderr,   # <-- ensures errors show as errors in Heroku logs
+            "formatter": "verbose",
+        },
+    },
+
+    "root": {
+        "handlers": ["console"],
+        "level": LOG_LEVEL,
+    },
+
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": LOG_LEVEL,
+            "propagate": False,
+        },
+
+        # Critical: catches 500 errors
+        "django.request": {
+            "handlers": ["error_console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+
+        # Database issues
+        "django.db.backends": {
+            "handlers": ["error_console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+
+        # Security issues (ALLOWED_HOSTS, CSRF failures)
+        "django.security": {
+            "handlers": ["error_console"],
+            "level": "WARNING",
+            "propagate": False,
+        },
+    },
+}
