@@ -405,10 +405,26 @@ The application includes visual feedback throughout to improve usability and use
 - Forms display validation feedback
 - Running totals update dynamically during rounds
 
-## Validator Testing
-
-
 ## Bugs & Fixes
+- Hero image was too bright, making text difficult to read
+- Added a semi-transparent overlay to improve contrast and ensure text readability
+
+- Pages were lacking consistent navigation buttons and relied on browser controls
+- Added Home and Back buttons to appropriate pages to improve navigation
+
+- Stats dashboard displayed all previous rounds which took up too much space
+- Limited display to the 5 most recent rounds and added a link to full round history
+
+- Round history initially displayed older rounds first
+- Updated queryset ordering to display most recent rounds first
+
+- Score input field was too large taking up most of the table space
+- Added custom CSS to reduce the width and improve spacing
+
+- Front 9 / Back 9 selection caused problems with score calculations and averages
+- Updated logic to ensure calculations were performed only on the selected holes
+
+## Validator Testing
 
 
 # Deployment
