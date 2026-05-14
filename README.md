@@ -251,6 +251,7 @@ The models are connected using ForeignKey relationships:
 
 ## User Story Testing
 **User Story 1**
+
 To create an account, so that I can save and track my golf scores over time
 
 **Expected Result:**
@@ -265,6 +266,7 @@ To create an account, so that I can save and track my golf scores over time
 **Result: Pass**
 
 **User Story 2**
+
 To log in to my account, so that I can access my previous rounds and personal statistics
 
 **Expected Result:**
@@ -282,6 +284,7 @@ To log in to my account, so that I can access my previous rounds and personal st
 **Result: Pass**
 
 **User Story 3 & 4**
+
 To choose a golf course before starting a round, so that the correct holes and par values are loaded
 
 To select whether I am playing the front 9, back 9, or full 18 holes, so that the application shows the correct holes
@@ -301,6 +304,7 @@ To select whether I am playing the front 9, back 9, or full 18 holes, so that th
 **Result: Pass**
 
 **User Story 5**
+
 To input my strokes for each hole, so that my performance is recorded accurately
 
 **Expected Result:**
@@ -315,6 +319,7 @@ To input my strokes for each hole, so that my performance is recorded accurately
 **Result: Pass**
 
 **User Story 6**
+
 To see whether I am over or under par for each hole, so that I can understand my performance throughout the round
 
 **Expected Result:**
@@ -329,6 +334,7 @@ To see whether I am over or under par for each hole, so that I can understand my
 **Result: Pass**
 
 **User Story 7**
+
 To see my total score and overall performance after finishing a round, so that I can evaluate how well I played
 
 **Expected Result:**
@@ -343,6 +349,7 @@ To see my total score and overall performance after finishing a round, so that I
 **Result: Pass**
 
 **User Story 8**
+
 To view my previous rounds, so that I can track my progress over time
 
 **Expected Result:**
@@ -357,6 +364,7 @@ To view my previous rounds, so that I can track my progress over time
 **Result: Pass**
 
 **User Story 9**
+
 To delete an unwanted round, so that I can remove incorrect or unnecessary records from my history
 
 **Expected Result:**
@@ -406,23 +414,23 @@ The application includes visual feedback throughout to improve usability and use
 - Running totals update dynamically during rounds
 
 ## Bugs & Fixes
-- Hero image was too bright, making text difficult to read
-- Added a semi-transparent overlay to improve contrast and ensure text readability
+- **Bug** Hero image was too bright, making text difficult to read
+- **Fix** Added a semi-transparent overlay to improve contrast and ensure text readability
 
-- Pages were lacking consistent navigation buttons and relied on browser controls
-- Added Home and Back buttons to appropriate pages to improve navigation
+- **Bug** Pages were lacking consistent navigation buttons and relied on browser controls
+- **Fix** Added Home and Back buttons to appropriate pages to improve navigation
 
-- Stats dashboard displayed all previous rounds which took up too much space
-- Limited display to the 5 most recent rounds and added a link to full round history
+- **Bug** Stats dashboard displayed all previous rounds which took up too much space
+- **Fix** Limited display to the 5 most recent rounds and added a link to full round history
 
-- Round history initially displayed older rounds first
-- Updated queryset ordering to display most recent rounds first
+- **Bug** Round history initially displayed older rounds first
+- **Fix** Updated queryset ordering to display most recent rounds first
 
-- Score input field was too large taking up most of the table space
-- Added custom CSS to reduce the width and improve spacing
+- **Bug** Score input field was too large taking up most of the table space
+- **Fix** Added custom CSS to reduce the width and improve spacing
 
-- Front 9 / Back 9 selection caused problems with score calculations and averages
-- Updated logic to ensure calculations were performed only on the selected holes
+- **Bug** Front 9 / Back 9 selection caused problems with score calculations and averages
+- **Fix** Updated logic to ensure calculations were performed only on the selected holes
 
 ## Validator Testing
 
