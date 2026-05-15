@@ -271,6 +271,8 @@ To create an account, so that I can save and track my golf scores over time
 
 **Result: Pass**
 
+[Signup Page](docs/images/signup-ss.png)
+
 **User Story 2**
 
 To log in to my account, so that I can access my previous rounds and personal statistics
@@ -288,6 +290,8 @@ To log in to my account, so that I can access my previous rounds and personal st
 5. Verify login redirects to homepage
 
 **Result: Pass**
+
+![Sign in](docs/images/signin-ss.png)
 
 **User Story 3 & 4**
 
@@ -309,6 +313,9 @@ To select whether I am playing the front 9, back 9, or full 18 holes, so that th
 
 **Result: Pass**
 
+![Start New Round](docs/images/new-round-ss.png)
+![Verify Hole Selection](docs/images/new-round-holes.png)
+
 **User Story 5**
 
 To input my strokes for each hole, so that my performance is recorded accurately
@@ -323,6 +330,8 @@ To input my strokes for each hole, so that my performance is recorded accurately
 3. Click Save Scores
 
 **Result: Pass**
+
+![Scorecard](docs/images/scorecard-ss.png)
 
 **User Story 6**
 
@@ -354,6 +363,8 @@ To see my total score and overall performance after finishing a round, so that I
 
 **Result: Pass**
 
+![Round Summary](docs/images/round-summary.png)
+
 **User Story 8**
 
 To view my previous rounds, so that I can track my progress over time
@@ -368,6 +379,8 @@ To view my previous rounds, so that I can track my progress over time
 3. Open a round detail page
 
 **Result: Pass**
+
+![Round History](docs/images/round-history-ss.png)
 
 **User Story 9**
 
@@ -385,6 +398,7 @@ To delete an unwanted round, so that I can remove incorrect or unnecessary recor
 
 **Result: Pass**
 
+![Round Deletion](docs/images/delete-round-ss.png)
 
 ## Controls
 All interactive controls were manually tested throughout the application.
@@ -454,7 +468,7 @@ The application was deployed using Heroku.
 2. Connect the Heroku app to the GitHub repository
 3. Configure the required environment variables (Config Vars)
 4. Deploy the project from the main branch
-5. Open the live application
+5. Open the live application [Golf Tracker App](https://golf-tracker-7037b8d94d66.herokuapp.com/)
 
 
 # Credits
