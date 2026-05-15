@@ -466,6 +466,15 @@ No major HTML errors remain.
 Custom CSS was tested using the W3C CSS Validator.
 No errors were found.
 
+### Lighthouse Scores
+**Performance:** 98
+
+**Accessibility:** 92
+
+**Best Practices:** 100
+
+
+
 # Deployment
 ## GitHub Repository
 The project repository was created using GitHub for version control and project management.
