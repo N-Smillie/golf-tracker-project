@@ -462,6 +462,10 @@ The following improvements were made during validation:
 
 No major HTML errors remain.
 
+### CSS Validation
+Custom CSS was tested using the W3C CSS Validator.
+No errors were found.
+
 # Deployment
 ## GitHub Repository
 The project repository was created using GitHub for version control and project management.
