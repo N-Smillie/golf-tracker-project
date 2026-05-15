@@ -86,6 +86,12 @@ As a user, I want:
     ![Round Deletion](docs/images/delete-round-ss.png)
 
 ## Wireframes
+![Homepage Wireframe](docs/images/homepage-wf.png)
+![Courses Wireframe](docs/images/courses-wf.png)
+![Rounds Wireframe](docs/images/rounds-wf.png)
+![Stats Wireframe](docs/images/stats-wf.png)
+
+
 ## Design Choices
 The application uses a golf-inspired colour palette using greens and neutral tones to create a clean and professional appearance.
 
