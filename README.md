@@ -492,3 +492,5 @@ The application was deployed using Heroku.
 
 
 # Credits
+- Golf logo images sourced from Google Images and compressed using TinyPNG
+- Hero image sourced from (https://www.oldcoursehotel.co.uk/)
