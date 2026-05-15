@@ -454,6 +454,13 @@ The application includes visual feedback throughout to improve usability and use
 
 ## Validator Testing
 
+### HTML Validation
+The following improvements were made during validation:
+- Added lang="en" to the HTML element for accessibility
+- Fixed heading elements to include h1 followed by h2 etc
+- Confirmed all images include descriptive alt text
+
+No major HTML errors remain.
 
 # Deployment
 ## GitHub Repository

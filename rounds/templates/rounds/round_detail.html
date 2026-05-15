@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
 
     <div>
-        <h2 class="mb-0">{{ round.course.name }}</h2>
+        <h1 class="mb-0">{{ round.course.name }}</h1>
 
         <span>
             {{ round.date }} - {{ round.get_holes_played_display }}
@@ -23,7 +23,7 @@
 <div class="card">
     <div class="card-body">
 
-        <h3 class="card-title mb-2">{{ round.course.name }}</h3>
+        <h2 class="card-title mb-2">{{ round.course.name }}</h2>
         <p>{{ round.get_holes_played_display }}</p>
 
         <form method="POST">
@@ -131,7 +131,7 @@
 <div class="card mt-4">
     <div class="card-body">
 
-        <h4>Round Summary</h4>
+        <h3>Round Summary</h3>
 
         <p><strong>Total Strokes:</strong> {{ total_strokes }}</p>
         <p><strong>Total Par:</strong> {{ total_par }}</p>
@@ -155,6 +155,7 @@
 <div class="modal fade"
      id="deleteRoundModal"
      tabindex="-1"
+     role="dialog"
      aria-labelledby="deleteRoundModalLabel"
      aria-hidden="true">
 
@@ -164,9 +165,9 @@
 
             <div class="modal-header">
 
-                <h5 class="modal-title" id="deleteRoundModalLabel">
+                <h4 class="modal-title" id="deleteRoundModalLabel">
                     Delete Round
-                </h5>
+                </h4>
 
                 <button type="button"
                         class="btn-close"
