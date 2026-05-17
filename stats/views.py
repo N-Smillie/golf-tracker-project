@@ -33,7 +33,6 @@ def stats_dashboard(request):
 
         valid_rounds.append(round)
 
-
         # Separate into 9/18 holes
 
         if round.holes_played == 'full18':
@@ -69,8 +68,8 @@ def stats_dashboard(request):
     best_nine = get_best(nine_rounds)
     worst_nine = get_worst(nine_rounds)
 
-
     # Calculate average
+
     def get_average(round_list):
         if not round_list:
             return None
@@ -84,7 +83,6 @@ def stats_dashboard(request):
     avg_full = get_average(full_rounds)
     avg_nine = get_average(nine_rounds)
 
-   
     # Context
     context = {
         'rounds': valid_rounds,
@@ -101,4 +99,3 @@ def stats_dashboard(request):
     }
 
     return render(request, 'stats/stats_dashboard.html', context)
-    

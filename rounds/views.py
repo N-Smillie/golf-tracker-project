@@ -4,6 +4,7 @@ from .models import Round, Score
 from courses.models import Hole
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def start_round(request):
     if request.method == 'POST':
@@ -24,6 +25,7 @@ def start_round(request):
         'form': form
     })
 
+
 @login_required
 def round_history(request):
     # Show only the logged-in user's rounds
@@ -32,6 +34,7 @@ def round_history(request):
     return render(request, 'rounds/round_history.html', {
         'rounds': rounds
     })
+
 
 @login_required
 def round_detail(request, round_id):
@@ -59,7 +62,7 @@ def round_detail(request, round_id):
                 )
 
         return redirect('round_detail', round_id=round.id)
-    
+
     # Get existing scores
     scores = {score.hole.id: score.strokes
               for score in Score.objects.filter(round=round)}
@@ -106,7 +109,6 @@ def round_detail(request, round_id):
             hole.diff = None
             hole.result = ""
             hole.running_total = None
-            
 
     # Calculation for over/under par
     score_vs_par = total_strokes - total_par
@@ -120,6 +122,8 @@ def round_detail(request, round_id):
     })
 
 # Round deletion
+
+
 @login_required
 def delete_round(request, round_id):
 

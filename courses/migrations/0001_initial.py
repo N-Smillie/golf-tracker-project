@@ -15,17 +15,20 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Course',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
             name='Hole',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('number', models.IntegerField()),
                 ('par', models.IntegerField()),
-                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='holes', to='courses.course')),
+                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                 related_name='holes', to='courses.course')),
             ],
         ),
     ]

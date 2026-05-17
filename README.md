@@ -473,7 +473,10 @@ No errors were found.
 
 **Best Practices:** 100
 
+### Python Validation
+Python code was formatted and validated using autopep8 and pycodestyle to maintain consistent code formatting throughout the project.
 
+Minor formatting issues identified during testing were corrected using manual fixes and formatting tools.
 
 # Deployment
 ## GitHub Repository

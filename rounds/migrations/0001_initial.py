@@ -18,20 +18,27 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Round',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateField(auto_now_add=True)),
-                ('holes_played', models.CharField(choices=[('front9', 'Front 9'), ('back9', 'Back 9'), ('full18', 'Full 18')], max_length=10)),
-                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='courses.course')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('holes_played', models.CharField(choices=[
+                 ('front9', 'Front 9'), ('back9', 'Back 9'), ('full18', 'Full 18')], max_length=10)),
+                ('course', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='courses.course')),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
             name='Score',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('strokes', models.IntegerField()),
-                ('hole', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='courses.hole')),
-                ('round', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='scores', to='rounds.round')),
+                ('hole', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='courses.hole')),
+                ('round', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                 related_name='scores', to='rounds.round')),
             ],
         ),
     ]
